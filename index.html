@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apakah Kamu free sekarang?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 10vh;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #ff6347;
+            text-shadow: 2px 2px 4px #000000;
+            font-size: 6vw;
+        }
+
+        button {
+            font-size: 4vw;
+            padding: 2vw 4vw;
+            margin: 2vw;
+            border: none;
+            border-radius: 1vw;
+            color: #ffffff;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #yes {
+            background-color: #4caf50;
+            position: relative; /* Tambahkan posisi relatif untuk tombol "Ya" */
+        }
+
+        #no {
+            background-color: #f44336;
+            position: absolute; /* Ubah posisi tombol "Tidak" menjadi absolut */
+        }
+
+        #no:hover {
+            transform: scale(1.1);
+        }
+
+        #result {
+            margin-top: 5vh;
+            font-size: 5vw;
+            font-weight: bold;
+            color: #ff6347;
+            text-shadow: 1px 1px 2px #000000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Apakah Kamu free sekarang?</h1>
+    <button id="yes" onclick="acceptGay()">Tidak</button>
+    <button id="no" onclick="moveNo()">Ya</button>
+    <p id="result"></p>
+
+    <script>
+        let noButton = document.getElementById("no");
+        const maxX = 80; // Batas maksimum posisi x dalam persentase viewport
+        const minX = 20; // Batas minimum posisi x dalam persentase viewport
+        const maxY = 70; // Batas maksimum posisi y dalam persentase viewport
+        const minY = 30; // Batas minimum posisi y dalam persentase viewport
+
+        function moveNo() {
+            let xPosition = Math.random() * (maxX - minX) + minX;
+            let yPosition = Math.random() * (maxY - minY) + minY;
+            noButton.style.left = xPosition + "vw";
+            noButton.style.top = yPosition + "vh";
+        }
+
+        function acceptGay() {
+            document.getElementById("result").innerHTML = "yahh gapapa deh next time kita main nya";
+        }
+
+        noButton.addEventListener("click", moveNo);
+    </script>
+</body>
+</html>
